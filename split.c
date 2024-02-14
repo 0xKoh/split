@@ -2,12 +2,12 @@
 #include <string.h>
 #include <stdbool.h>
 
-char	*strndup(char *src, int len)
+char	*ft_strndup(char *src, int len)
 {
 	char	*entry;
 	char	*ptr;
 
-	entry = malloc(strlen(src) + 1);
+	entry = malloc(len + 1);
 	ptr = entry;
 	if (entry == NULL)
 		return (NULL);
@@ -71,9 +71,7 @@ char	**split(char *str, char *charset)
 				break ;
 			len++;
 		}
-		if (*str == 0 && len > 0)
-			strs[i++] = strndup(str - (len), len);
-		else if (len > 0)
+		if (len > 0)
 			strs[i++] = strndup(str - (len + 1), len);
 	}
 	strs[i] = 0;
